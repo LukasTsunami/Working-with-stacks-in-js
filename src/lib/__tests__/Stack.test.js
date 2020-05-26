@@ -2,9 +2,17 @@ const Stack = require("../Stack");
 
 describe("#stack_encapsulation", () => {
   describe("trying to access private members", () => {
-    it("should not be able to access them", () => {
+    it("should not be able to access items", () => {
       stack = new Stack();
       expect(stack.items).toBe(undefined);
+    });
+
+    it("should not be able to access functions", () => {
+      stack = new Stack();
+      expect(stack.isPrimitiveObject).toBe(undefined);
+      expect(stack.formatStringWhenObject).toBe(undefined);
+      expect(stack.formatStringWhenNullOrFalsy).toBe(undefined);
+      expect(stack.formatStringWhenFunction).toBe(undefined);
     });
   });
 });
