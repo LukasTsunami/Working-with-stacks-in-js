@@ -166,5 +166,14 @@ describe("#stack_methods", () => {
         expect(stack.toString()).toBe("4,[function someFunction],1");
       });
     });
+
+    describe("with zero number", () => {
+      it("should print zero inside returned string", () => {
+        stack.push(1);
+        stack.push(0);
+        stack.push("4");
+        expect(stack.toString()).toBe("4,0,1");
+      });
+    });
   });
 });

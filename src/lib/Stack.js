@@ -52,6 +52,11 @@ const Stack = (function () {
   }
 
   //Private functions
+
+  const isZero = function (item) {
+    return typeof item === "number" && item === 0;
+  };
+
   const isPrimitiveObject = function (item) {
     return item.toString() !== "[object Object]";
   };
@@ -67,6 +72,7 @@ const Stack = (function () {
   };
 
   const formatStringWhenNullOrFalsy = function (item) {
+    if (isZero(item)) return "0";
     if (!item) return "false";
   };
 

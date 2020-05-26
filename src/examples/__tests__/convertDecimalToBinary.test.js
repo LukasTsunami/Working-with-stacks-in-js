@@ -1,4 +1,3 @@
-const Stack = require("../../lib/Stack");
 const convertDecimalToBinary = require("../convertDecimalToBinary");
 
 describe("when converting decimal to binary", () => {
