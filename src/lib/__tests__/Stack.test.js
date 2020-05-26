@@ -52,3 +52,13 @@ describe("popping an item from stack", () => {
     expect(stack.pop()).toBe(undefined);
   });
 });
+
+test("if stack is empty", () => {
+  stack = new Stack();
+
+  expect(stack.isEmpty()).toBeTruthy();
+
+  stack.push(9);
+
+  expect(stack.isEmpty()).toBeFalsy();
+});
