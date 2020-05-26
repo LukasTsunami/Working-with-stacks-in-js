@@ -145,5 +145,18 @@ describe("#stack_methods", () => {
         expect(stack.toString()).toBe("4,I'm some class return string,1");
       });
     });
+
+    describe("with functions", () => {
+      let someFunction = function () {
+        return "do_something";
+      };
+
+      it("should print their assignature inside returned string", () => {
+        stack.push(1);
+        stack.push(someFunction);
+        stack.push("4");
+        expect(stack.toString()).toBe("4,[function someFunction],1");
+      });
+    });
   });
 });

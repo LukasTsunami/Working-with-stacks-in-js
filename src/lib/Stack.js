@@ -36,6 +36,8 @@ const Stack = (function () {
         .map((item) => {
           if (!item) return "false";
 
+          if (typeof item == "function") return `[function ${item.name}]`;
+
           if (typeof item == "object") {
             const auxStr = item.toString();
             if (auxStr != "[object Object]") return auxStr;
