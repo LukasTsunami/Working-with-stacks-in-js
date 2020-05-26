@@ -1,0 +1,11 @@
+{
+  "name": "woking_with_stacks_in_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:LukasTsunami/Working-with-stacks-in-js.git",
+  "author": "LukasTsunami <prateadow@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
