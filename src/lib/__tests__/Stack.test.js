@@ -4,7 +4,7 @@ describe("#stack_encapsulation", () => {
   describe("trying to access private members", () => {
     it("should not be able to access them", () => {
       stack = new Stack();
-      expect(stack.items).toThrow();
+      expect(stack.items).toBe(undefined);
     });
   });
 });
@@ -13,24 +13,22 @@ describe("#stack_methods", () => {
   describe("requesting for see stack's head", () => {
     beforeEach(() => {
       stack = new Stack();
-
-      Object.defineProperty(stack, "items", {
-        get: jest.fn(() => [1, 2, 8]),
-      });
+      stack.push(8);
     });
 
-    it("should see it", () => {
+    it("should see it without changing stack", () => {
+      expect(stack.count()).toBe(1);
       expect(stack.peek()).toBe(8);
+      expect(stack.count()).toBe(1);
     });
   });
 
   describe("counting how much items are on stack", () => {
     beforeEach(() => {
       stack = new Stack();
-
-      Object.defineProperty(stack, "items", {
-        get: jest.fn(() => [2, 2, 8]),
-      });
+      stack.push(1);
+      stack.push({});
+      stack.push("5");
     });
 
     it("should get it", () => {
