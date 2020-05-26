@@ -12,7 +12,12 @@ class Stack {
     const strArray = this.items.reverse().map((item) => {
       if (!item) return "false";
 
-      if (typeof item == "object") return JSON.stringify(item);
+      if (typeof item == "object") {
+        const auxStr = item.toString();
+        if (auxStr != "[object Object]") return auxStr;
+
+        return JSON.stringify(item);
+      }
 
       return item.toString();
     });

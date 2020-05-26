@@ -118,4 +118,23 @@ describe("printing the stack", () => {
       expect(stack.toString()).toBe('4,{"name":"Lucas","age":23},1');
     });
   });
+
+  describe("with class objects", () => {
+    class SomeClass {
+      constructor() {}
+
+      toString() {
+        return "I'm some class return string";
+      }
+    }
+
+    it("should print their assignature inside returned string", () => {
+      const someClassObject = new SomeClass();
+
+      stack.push(1);
+      stack.push(someClassObject);
+      stack.push("4");
+      expect(stack.toString()).toBe("4,I'm some class return string,1");
+    });
+  });
 });
