@@ -1,5 +1,6 @@
 const Stack = (function () {
   const items = new WeakMap();
+
   class Stack {
     constructor() {
       items.set(this, []);
@@ -34,16 +35,14 @@ const Stack = (function () {
         .get(this)
         .reverse()
         .map((item) => {
-          if (!item) return "false";
+          const formatedCauseNullOrFalsy = formatStringWhenNullOrFalsy(item);
+          if (formatedCauseNullOrFalsy) return formatedCauseNullOrFalsy;
 
-          if (typeof item == "function") return `[function ${item.name}]`;
+          const formatedCauseObject = formatStringWhenObject(item);
+          if (formatedCauseObject) return formatedCauseObject;
 
-          if (typeof item == "object") {
-            const auxStr = item.toString();
-            if (auxStr != "[object Object]") return auxStr;
-
-            return JSON.stringify(item);
-          }
+          const formatedCauseFunction = formatStringWhenFunction(item);
+          if (formatedCauseFunction) return formatedCauseFunction;
 
           return item.toString();
         });
@@ -51,6 +50,29 @@ const Stack = (function () {
       return strArray.toString();
     }
   }
+
+  //Private functions
+  const isPrimitiveObject = function (item) {
+    return item.toString() !== "[object Object]";
+  };
+
+  const formatStringWhenObject = function (item) {
+    if (typeof item == "object") {
+      if (isPrimitiveObject(item)) return item.toString();
+
+      return JSON.stringify(item);
+    }
+
+    return false;
+  };
+
+  const formatStringWhenNullOrFalsy = function (item) {
+    if (!item) return "false";
+  };
+
+  const formatStringWhenFunction = function (item) {
+    if (typeof item == "function") return `[function ${item.name}]`;
+  };
 
   return Stack;
 })();
