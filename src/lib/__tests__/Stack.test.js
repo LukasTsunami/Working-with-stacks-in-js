@@ -62,3 +62,20 @@ test("if stack is empty", () => {
 
   expect(stack.isEmpty()).toBeFalsy();
 });
+
+describe("clearing the stack", () => {
+  beforeEach(() => {
+    stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+  });
+
+  it("should be empty", () => {
+    expect(stack.count()).toBe(4);
+    stack.clear();
+    expect(stack.isEmpty()).toBeTruthy();
+    expect(stack.count()).toBe(0);
+  });
+});
