@@ -28,12 +28,12 @@ describe("counting how much items are on stack", () => {
   });
 });
 
-describe("adding a new item to stack", () => {
+describe("pushing a new item to stack", () => {
   beforeEach(() => {
     stack = new Stack();
   });
 
-  it("should be added on stack's head", () => {
+  it("should be pushed on stack's head", () => {
     const new_element = 9;
     stack.push(new_element);
     expect(stack.peek()).toBe(9);
