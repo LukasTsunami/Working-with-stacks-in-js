@@ -14,6 +14,20 @@ describe("requesting for the stack's head", () => {
   });
 });
 
+describe("counting how much items are on stack", () => {
+  beforeEach(() => {
+    stack = new Stack();
+
+    Object.defineProperty(stack, "items", {
+      get: jest.fn(() => [2, 2, 8]),
+    });
+  });
+
+  it("should get it", () => {
+    expect(stack.count()).toBe(3);
+  });
+});
+
 describe("adding a new item to stack", () => {
   beforeEach(() => {
     stack = new Stack();
