@@ -5,6 +5,9 @@
   "repository": "git@github.com:LukasTsunami/Working-with-stacks-in-js.git",
   "author": "LukasTsunami <prateadow@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "jest": "^26.0.1"
   }
