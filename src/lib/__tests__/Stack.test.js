@@ -35,7 +35,9 @@ describe("pushing a new item to stack", () => {
 
   it("should be pushed on stack's head", () => {
     const new_element = 9;
+    const old_count = stack.count();
     stack.push(new_element);
     expect(stack.peek()).toBe(9);
+    expect(stack.count()).toBe(old_count + 1);
   });
 });
