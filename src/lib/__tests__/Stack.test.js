@@ -83,13 +83,39 @@ describe("clearing the stack", () => {
 describe("printing the stack", () => {
   beforeEach(() => {
     stack = new Stack();
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
-    stack.push(4);
   });
 
-  it("should return a string with all items from last to first", () => {
-    expect(stack.toString()).toBe("4,3,2,1");
+  describe("with numbers", () => {
+    it("should return a string with all items from last to first", () => {
+      stack.push(1);
+      stack.push(2);
+      stack.push(3);
+      stack.push(4);
+      expect(stack.toString()).toBe("4,3,2,1");
+    });
+  });
+
+  describe("with strings", () => {
+    it("should return a string with all items from last to first", () => {
+      stack.push(1);
+      stack.push("b");
+      stack.push(3);
+      stack.push("d");
+      expect(stack.toString()).toBe("d,3,b,1");
+    });
+  });
+
+  describe("with objects", () => {
+    it("should print their assignature inside returned string", () => {
+      const person = {
+        name: "Lucas",
+        age: 23,
+      };
+
+      stack.push(1);
+      stack.push(person);
+      stack.push("4");
+      expect(stack.toString()).toBe('4,{"name":"Lucas","age":23},1');
+    });
   });
 });
