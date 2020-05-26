@@ -90,6 +90,6 @@ describe("printing the stack", () => {
   });
 
   it("should return a string with all items from last to first", () => {
-    expect(stack.print()).toBe("4,3,2,1");
+    expect(stack.toString()).toBe("4,3,2,1");
   });
 });

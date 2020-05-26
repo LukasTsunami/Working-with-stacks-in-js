@@ -8,7 +8,7 @@ class Stack {
   isEmpty = () => this.items.length === 0;
   peek = () => this.items[this.items.length - 1];
   pop = () => this.items.pop();
-  print = () => this.items.reverse().toString();
+  toString = () => this.items.reverse().toString();
   push = (item) => this.items.push(item);
 }
 
