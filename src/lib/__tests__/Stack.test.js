@@ -1,6 +1,6 @@
 const Stack = require("../Stack");
 
-describe("requesting for the stack's head", () => {
+describe("requesting for see stack's head", () => {
   beforeEach(() => {
     stack = new Stack();
 
@@ -9,7 +9,7 @@ describe("requesting for the stack's head", () => {
     });
   });
 
-  it("should get it", () => {
+  it("should see it", () => {
     expect(stack.peek()).toBe(8);
   });
 });
