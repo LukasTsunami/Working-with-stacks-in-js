@@ -29,15 +29,26 @@ describe("counting how much items are on stack", () => {
 });
 
 describe("pushing a new item to stack", () => {
-  beforeEach(() => {
-    stack = new Stack();
-  });
-
   it("should be pushed on stack's head", () => {
+    stack = new Stack();
     const new_element = 9;
     const old_count = stack.count();
     stack.push(new_element);
     expect(stack.peek()).toBe(9);
     expect(stack.count()).toBe(old_count + 1);
+  });
+});
+
+describe("popping an item from stack", () => {
+  it("should be returned", () => {
+    stack = new Stack();
+    stack.push(9);
+    stack.push(2);
+    stack.push(4);
+
+    expect(stack.pop()).toBe(4);
+    expect(stack.pop()).toBe(2);
+    expect(stack.pop()).toBe(9);
+    expect(stack.pop()).toBe(undefined);
   });
 });
