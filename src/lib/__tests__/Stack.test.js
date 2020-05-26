@@ -79,3 +79,17 @@ describe("clearing the stack", () => {
     expect(stack.count()).toBe(0);
   });
 });
+
+describe("printing the stack", () => {
+  beforeEach(() => {
+    stack = new Stack();
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+  });
+
+  it("should return a string with all items from last to first", () => {
+    expect(stack.print()).toBe("4,3,2,1");
+  });
+});
